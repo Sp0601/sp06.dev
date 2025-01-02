@@ -1,0 +1,57 @@
+body {
+    background-color: oldlace ;
+    font-family: Lucida Console, Monaco, sans-serif;
+}
+
+main {
+    width: 700px;
+    margin:auto;
+    border-style: outset;
+/*  border-color: #91678d; */
+    padding: 15px ;
+}
+/* Gradient from #FFB44C to #0000FF is a contender for backgrond */
+
+article {
+    border-style: outset;
+    padding: 15px ;
+    text-align: justify;
+}
+
+footer {
+    padding: 15px ;
+    text-align: center;
+    margin:auto;
+}
+
+h1, h2 {
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.301);
+}
+
+/* unvisited link */
+a:link {
+    color: #0000ff;
+    text-decoration: none;
+    background-color: palegoldenrod;
+}
+  
+/* visited link */
+a:visited {
+    color: #54188a;
+    background-color: palegoldenrod;
+    text-decoration: none;
+}
+  
+/* mouse over link */
+a:hover {
+    color: yellowgreen;
+    background-color: palegoldenrod;
+    text-decoration: underline;
+}
+  
+/* selected link */
+a:active {
+    color: yellow;
+    background-color: palegoldenrod;
+    text-decoration: none;
+}
