@@ -19,13 +19,16 @@ article {
 }
 
 footer {
-    padding: 15px ;
     text-align: justify;
     margin:auto;
 }
 
 h1, h2 {
     text-shadow: 2px 2px rgba(0, 0, 0, 0.301);
+}
+
+.a {
+    text-align: center;
 }
 
 /* unvisited link */
