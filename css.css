@@ -31,6 +31,10 @@ h1, h2 {
     text-align: center;
 }
 
+.b {
+    text-align: right;
+}
+
 /* unvisited link */
 a:link {
     color: #0000ff;
