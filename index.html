@@ -30,35 +30,106 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&display=swap" rel="stylesheet">
+
+    <script type="text/javascript">
+      // <![CDATA[
+      var news=Array("");
+      var cursor="_"; // set cursor
+      var delay=12; // seconds between each news item
+      
+      /***************************\
+      * News Ticker Text Effect   *
+      *(c)2004-14 mf2fm web-design*
+      *  http://www.mf2fm.com/rv  *
+      * DON'T EDIT BELOW THIS BOX *
+      \***************************/
+      var newsp, cursp, flash, item=0;
+      
+      if (typeof('addRVLoadEvent')!='function') function addRVLoadEvent(funky) {
+        var oldonload=window.onload;
+        if (typeof(oldonload)!='function') window.onload=funky;
+        else window.onload=function() {
+          if (oldonload) oldonload();
+          funky();
+        }
+      }
+      
+      addRVLoadEvent(teleprint);
+      
+      function teleprint () { if (document.getElementById) {
+        var span=document.getElementById("news");
+        while (span.childNodes.length) span.removeChild(span.childNodes[0]);
+        delay*=1000;
+        newsp=document.createElement("span");
+        cursp=document.createElement("span");
+        cursp.appendChild(document.createTextNode(String.fromCharCode(160)+cursor));
+        span.appendChild(newsp);
+        span.appendChild(cursp);
+        ticker();
+      }}
+      
+      function ticker() {
+        var i;
+        while (newsp.childNodes.length) newsp.removeChild(newsp.childNodes[0]);
+        newsp.appendChild(document.createTextNode(news[item].substring(0,1)));
+        for (i=1; i<news[item].length; i++) setTimeout('newsp.firstChild.nodeValue="'+news[item].substring(0, i+1)+'"', 1000*i);
+        if (news[item].indexOf("www")!=-1) setTimeout('linkit('+item+')', 1000*i);
+        setTimeout('flash=setInterval("cursp.style.visibility=(cursp.style.visibility==\'visible\')?\'hidden\':\'visible\'", 234)', 1000*i)
+        setTimeout('clearInterval(flash)', delay);
+        setTimeout('cursp.style.visibility="visible"', delay);
+        setTimeout('ticker()', delay);
+        item=++item%news.length;
+      }
+      
+      function linkit(q) {
+        var a,p,e,l;
+        p=news[q].indexOf("www");
+        e=news[q].indexOf(" ", p);
+        if (e==-1) e=news[q].length;
+        l=news[q].substring(p, e);
+        while (newsp.childNodes.length) newsp.removeChild(newsp.childNodes[0]);
+        newsp.appendChild(document.createTextNode(news[q].substring(0, p)));
+        a=document.createElement("a");
+        a.href="http://"+l;
+        a.appendChild(document.createTextNode(l));
+        newsp.appendChild(a);
+        newsp.appendChild(document.createTextNode(news[q].substring(e)));
+      }
+      // ]]>
+      </script>
+
   </head>
 
   <body>
     <button style="position: fixed;"><a href="/dark/index.html"> Dark Mode</a></button>
     <main>
+
+    <h1>Sp06.dev<span id="news"></span></h1>
       
-    <h1>Welcome to My Website ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ <sub>Sp06</sub></h1> 
-    <pre>
-         _____                                                                      _____ 
-        ( ___ )--------------------------------------------------------------------( ___ )
-         |   |                                                                      |   | 
-         |   |          ...                                                         |   | 
-         |   |      .x888888hx    :                   .n~~%x.         .ue~~%u.      |   | 
-         |   |     d88888888888hxx   .d``           x88X   888.     .d88   z88i     |   | 
-         |   |    8" ... `"*8888%`   @8Ne.   .u    X888X   8888L   x888E  *8888     |   | 
-         |   |   !  "   ` .xnxx.     %8888:u@88N  X8888X   88888  :8888E   ^""      |   | 
-         |   |   X X   .H8888888%:    `888I  888. 88888X   88888X 98888E.=tWc.      |   | 
-         |   |   X 'hn8888888*"   >    888I  888I 88888X   88888X 98888N  '888N     |   | 
-         |   |   X: `*88888%`     !    888I  888I 88888X   88888f 98888E   8888E    |   | 
-         |   |   '8h.. ``     ..x8>  uW888L  888' 48888X   88888  '8888E   8888E    |   | 
-         |   |    `88888888888888f  '*88888Nu88P   ?888X   8888"   ?888E   8888"    |   | 
-         |   |     '%8888888888*"   ~ '88888F`      "88X   88*`     "88&   888"     |   | 
-         |   |        ^"****""`        888 ^          ^"==="`         ""==*""       |   | 
-         |   |                         *8E                                          |   | 
-         |   |                         '8>                                          |   | 
-         |   |                          "                                           |   | 
-         |___|                                                                      |___| 
-        (_____)--------------------------------------------------------------------(_____)
-   </pre>
+    <pre><strong>
+     _____                                                                                                                       _____ 
+    ( ___ )---------------------------------------------------------------------------------------------------------------------( ___ )
+     |   |                                                                                                                       |   | 
+     |   |                                                                                                                       |   | 
+     |   |             ...                                                                ..                     _               |   | 
+     |   |         .x888888hx    :                   .n~~%x.         .ue~~%u.           dF                      u                |   | 
+     |   |        d88888888888hxx   .d``           x88X   888.     .d88   z88i         '88bu.                  88Nu.   u.        |   | 
+     |   |       8" ... `"*8888%`   @8Ne.   .u    X888X   8888L   x888E  *8888         '*88888bu        .u    '88888  888c       |   | 
+     |   |      !  "   ` .xnxx.     %8888:u@88N  X8888X   88888  :8888E   ^""            ^"*8888N    ud8888.   ^8888  8888       |   | 
+     |   |      X X   .H8888888%:    `888I  888. 88888X   88888X 98888E.=tWc.           beWE "888L :888'8888.   8888  8888       |   | 
+     |   |      X 'hn8888888*"   >    888I  888I 88888X   88888X 98888N  '888N          888E  888E d888 '88%"   8888  8888       |   | 
+     |   |      X: `*88888%`     !    888I  888I 88888X   88888f 98888E   8888E         888E  888E 8888.+"      8888  8888       |   | 
+     |   |      '8h.. ``     ..x8>  uW888L  888' 48888X   88888  '8888E   8888E    .    888E  888F 8888L       .8888b.888P       |   | 
+     |   |       `88888888888888f  '*88888Nu88P   ?888X   8888"   ?888E   8888"  .@8c  .888N..888  '8888c. .+   ^Y8888*""        |   | 
+     |   |        '%8888888888*"   ~ '88888F`      "88X   88*`     "88&   888"  '%888"  `"888*""    "88888%       `Y"            |   | 
+     |   |           ^"****""`        888 ^          ^"==="`         ""==*""      ^*       ""         "YP'                       |   | 
+     |   |                            *8E                                                                                        |   | 
+     |   |                            '8>                                                                                        |   | 
+     |   |                             "                                                                                         |   | 
+     |   |                                                                                                                       |   | 
+     |___|                                                                                                                       |___| 
+    (_____)---------------------------------------------------------------------------------------------------------------------(_____)
+  </strong></pre>
 
 
     <p>Goals :</p>
