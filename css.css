@@ -1,6 +1,7 @@
 body {
-    background-color: oldlace ;
+    background-color: #393646 ;
     font-family: Lucida Console, Monaco, sans-serif;
+    color: #f5ce8a;
 }
 
 main {
@@ -8,6 +9,7 @@ main {
     margin:auto;
     border-style: outset;
 /*  border-color: #91678d; */
+    border-color: #262626;
     padding: 15px ;
 }
 /* Gradient from #FFB44C to #0000FF is a contender for backgrond */
@@ -16,6 +18,7 @@ article {
     border-style: outset;
     padding: 15px ;
     text-align: justify;
+    border-color: #262626;
 }
 
 footer {
@@ -39,34 +42,34 @@ h1, h2 {
 a:link {
     color: #0000ff;
     text-decoration: none;
-    background-color: palegoldenrod;
+    background-color: #c0b326;
 }
   
 /* visited link */
 a:visited {
     color: #54188a;
-    background-color: palegoldenrod;
     text-decoration: none;
+    background-color: #c0b326;
 }
   
 /* mouse over link */
 a:hover {
     color: yellowgreen;
-    background-color: palegoldenrod;
     text-decoration: underline;
+    background-color: #c0b326;
 }
   
 /* selected link */
 a:active {
     color: yellow;
-    background-color: palegoldenrod;
     text-decoration: none;
+    background-color: #c0b326;
 }
 
 button {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 8px 16px 0 rgba(255,255,255,0.2), 0 6px 20px 0 rgba(255,255,255,0.19);
 }
-/*Nice*/
+
 pre {
     font-size: 9px;
     text-shadow: 2px 2px rgba(0, 0, 0, 0.301);
